@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=2000, height=1200">
+    <title>이미지 생성</title>
+    <link rel="stylesheet"  href="{% static 'css/main.css'%}">
+</head>
+<body>
+    <header>
+        <h1>이미지 생성 페이지</h1>
+    </header>
+    <div class="navbar">
+        <ul>
+            <li><a href = "object">object</a></li>
+            <li><a href = "animal">animal</a></li>
+        </ul>
+    </div>
+    <form id = "controlForm" method="post" enctype="multipart/form-data">
+    {% csrf_token %} 
+    <div class="content">
+        <div class="left">
+            <div class="panel">
+                입력 프롬프트
+                <textarea placeholder="문자를 입력하세요" id="prompt" name="prompt" rows="3" style="display: block;" value="{{ prompt }}" ></textarea>
+            </div>
+            <div class="panel">
+                제외 프롬프트
+                <textarea placeholder="문자를 입력하세요" id="negative_prompt" name="negative_prompt" rows="3" style="display: block;" value="{{ negative_prompt }}"></textarea>
+            </div>
+            <div class="panel">
+                파라미터 조절
+                <div class="parameter">
+                    <div class="flex-parameter">
+                        num_inference_steps
+                        <input type="number" id="num_inference_steps" name="num_inference_steps" placeholder="숫자를 입력하세요" value="{{ num_inference_steps }}">
+                    </div>
+                    <div class="flex-parameter">
+                        num_images_per_prompt (max=4)
+                        <input type="number" id="num_images_per_prompt" name="num_images_per_prompt" max="4" placeholder="숫자를 입력하세요" value="{{ num_images_per_prompt }}">
+                    </div>
+                    <div class="flex-parameter">
+                        guidance_scale
+                        <input type="number" id="guidance_scale" name="guidance_scale" placeholder="숫자를 입력하세요" value="{{ guidance_scale }}">
+                    </div>
+                    <div class="flex-parameter">
+                        seed
+                        <input type="number" id="seed" name="seed" placeholder="숫자를 입력하세요" value="{{ seed }}">
+                    </div>
+                    <div class="flex-parameter">
+                        batch_size (max=4)
+                        <input type="number" id="batch_size" name="batch_size" max="4" placeholder="숫자를 입력하세요" value="{{ batch_size }}">    
+                    </div>
+                    <div class="flex-parameter">
+                        batch_count
+                        <input type="number" id="batch_count" name="batch_count" placeholder="숫자를 입력하세요" value="{{ batch_count }}">
+                    </div>
+                </div>
+            </div>
+            <div class="panel">
+                LoRa 가중치 조절 <hr style="border-bottom: 1px solid #000000;">
+                <div class="lora_weights">
+                    <input type="range" min="0.00" max="0.15" step="0.01" value="{{ weights }}" id="slider" name="weights" >
+                    <span id="slider-value">0.00</span>
+                </div>
+            </div>
+            <div class="panel">
+                이미지 불러오기
+                <hr style="border-bottom: 1px solid #000000;">
+                <div class="imgbtn">
+                    <input type="file" accept="image/*" id="imageInput" style="display: none; " id="init_image" name="init_image">
+                    <label for="imageInput" class="image-upload-button">이미지 불러오기</label>
+                </div>
+                <div class="img_load">
+                    <!-- <img id="previewImage" src="#" alt="이미지 미리보기"> -->
+                    <!-- <img id="previewImage" src="" alt=""> -->
+                    {% if init_image %}
+                        <img id="previewImage" src="{{ init_image.url }}" alt="">
+                    {% else %}
+                        <img id="previewImage" src="" alt="">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="panel">결과 화면</div>
+            <div class="img_re">
+                <div class="img_main">
+                    <button type="button" class="prev" onclick="prevSlide()">&#10094;</button>
+                    <div class="slides">
+                        {% for img in images %}
+                            <div class="slide">
+                                <img src="{{ img }}" alt="Generated Image {{ forloop.counter }}">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <button type="button" class="next" onclick="nextSlide()">&#10095;</button>
+                </div>
+            </div>
+            <div class="btn">
+                <button type="submit" class="runninig">running</button>
+                <button type="button" class="save">save</button>
+            </div>
+        </div>
+    </div>
+    </form>
+    <script src="{% static 'js/main2.js'%}"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,315 @@
+/* 전체 페이지의 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 스크롤 금지 */
+html, body {
+    overflow: hidden;
+}
+
+/* 페이지 바디 스타일 */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* 헤더 스타일 */
+header {
+    width: 100%;
+    padding: 20px;
+    background-color: #f8f9fa; /* 헤더 배경색은 부드러운 회색 */
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+    color: #333;
+}
+
+/* 네비게이션 바 스타일 */
+.navbar {
+    width: 100%;
+    background-color: #343a40; /* 어두운 배경색 */
+}
+
+.navbar nav {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+}
+
+.navbar a:hover {
+    background-color: #495057; /* 링크 호버 시 배경색 */
+}
+
+/* 콘텐츠 영역 스타일 */
+.content {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    text-align: left;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* 좌측 패널 스타일 */
+.left {
+    display: flex;
+    flex-direction: column;
+    flex: 1.5;
+    overflow-y: auto; /* 스크롤을 가능하게 하는 속성 */
+    max-height: 90vh; /* 최대 높이 설정 */
+    /* background-color: #ff0000; */
+}
+
+.left .panel {
+    padding: 30px;
+    padding-top: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* 세로로 배치 */
+    justify-content: center;
+    border-bottom: 1px solid #000000; /* 구분선 */
+}
+
+.left .panel:last-child {
+    flex: 4;
+    border-bottom: none; /* 마지막 패널에는 구분선 제거 */
+}
+
+/* 입력 창의 스타일 */
+.panel textarea {
+    margin-top: 15px;
+    width: 100%; /* 부모 요소의 전체 너비를 채우도록 설정 */
+    height: 250px;
+    padding: 10px; /* 내부 여백 설정 */
+    font-size: 16px; /* 폰트 크기 설정 */
+    border-radius: 15px;
+}
+
+.parameter {
+    border-top: 1px solid #000000; /* 구분선 */
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-parameter {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 50%; /* 2개씩 한 줄에 배치 */
+    font-size: 30px;
+    text-align: left;
+}
+
+/* 입력 창의 스타일 */
+.flex-parameter input[type="number"] {
+    margin: 10px 40px 5px 0px;
+    padding: 10px;
+    font-size: 16px; /* 폰트 크기 설정 */
+    border-radius: 15px;
+}
+
+
+.lora_weights{
+    margin: 50px 0px 50px 0px;
+}
+
+.lora_weights input[type="range"]{
+    width: 50%;
+    accent-color: #007bff;
+}
+
+
+
+
+#slider-value {
+    margin-left: 30px;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    border: solid 3px #000000;
+
+}
+
+
+
+
+/* 기존 코드 */
+.img_load {
+    position:relative;
+    background-color: rgb(58, 58, 57);
+    width: 512px; /* 수정된 부분 */
+    height: 512px; /* 수정된 부분 */
+    left: 600px;
+    bottom: 30px;
+    padding: 0;
+}
+
+.imgbtn {
+    position:relative;
+    /* background-color: rgb(58, 58, 57); */
+    left: 10px;
+    bottom: -200px;
+    padding: 0;
+}
+
+/* 추가된 코드 */
+.img_load img {
+    width: 512px;
+    height: 512px;
+}
+
+.img_main {
+    width: 512px;
+    height: 512px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.slide img {
+    width: 512px;
+    height: 512px;
+    object-fit: cover;
+}
+
+
+
+/* 추가된 CSS */
+.image-upload-button {
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    margin-top: 40px;
+    display: inline-block;
+}
+
+.image-upload-button:hover {
+    background-color: #0056b3;
+}
+
+#imageInput {
+    display: none;
+}
+
+
+
+/* 우측 패널 스타일 */
+.right {
+    padding: 30px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* background-color: rgb(0, 47, 255); */
+    border-left: 1px solid #000000; /* 구분선 */
+}
+
+.right .panel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #000000; /* 구분선 */
+}
+
+.right .img_re {
+    flex: 15;
+    display: flex;
+    /* background-color: aqua; */
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #000000; /* 구분선 */
+}
+
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: calc(100% * 16); /* 슬라이드 아이템 개수 만큼 설정 */
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
+
+
+.right .btn {
+    margin-top: 30px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right .btn button {
+    background-color: #007bff;
+    width: 300px; /* 버튼 너비 60px로 설정 */
+    margin-right: 50px;
+    text-align: center;
+    height: 50px;
+    font-size: 40px;
+}
+
+
+
+
+
+
+
