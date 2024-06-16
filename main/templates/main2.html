@@ -13,7 +13,7 @@
     </header>
     <div class="navbar">
         <ul>
-            <li><a href = "object">object</a></li>
+            <li><a href = "">object</a></li>
             <li><a href = "animal">animal</a></li>
         </ul>
     </div>
@@ -23,11 +23,11 @@
         <div class="left">
             <div class="panel">
                 입력 프롬프트
-                <textarea placeholder="문자를 입력하세요" id="prompt" name="prompt" rows="3" style="display: block;" value="{{ prompt }}" ></textarea>
+                <input type = "text" placeholder="문자를 입력하세요" id="prompt" name="prompt" rows="3" style="display: block;" value="{{ prompt }}" >
             </div>
             <div class="panel">
                 제외 프롬프트
-                <textarea placeholder="문자를 입력하세요" id="negative_prompt" name="negative_prompt" rows="3" style="display: block;" value="{{ negative_prompt }}"></textarea>
+                <input type = "text"placeholder="문자를 입력하세요" id="negative_prompt" name="negative_prompt" rows="3" style="display: block;" value="{{ negative_prompt }}">
             </div>
             <div class="panel">
                 파라미터 조절

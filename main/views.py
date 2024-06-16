@@ -5,7 +5,6 @@ import base64
 import io
 import os
 import json
-import boto3
 from PIL import Image
 from safetensors.torch import load_file
 from diffusers import StableDiffusionImg2ImgPipeline
@@ -44,7 +43,7 @@ def model_fn(lora_model_path, weight):
     pipeline = StableDiffusionImg2ImgPipeline.from_pretrained(
         model_id,
         torch_dtype=torch.float16
-    ).to("mps")
+    ).to("cuda")
 
     # pipeline = load_lora_weights(pipeline, lora_model_path, 0.1)
     pipeline = load_lora_weights(pipeline, lora_model_path, weight)
@@ -52,12 +51,12 @@ def model_fn(lora_model_path, weight):
     return pipeline
 
 def load_lora_weights(pipeline, checkpoint_path, weight):
-    pipeline.to("mps")
+    pipeline.to("cuda")
     LORA_PREFIX_UNET = "lora_unet"
     LORA_PREFIX_TEXT_ENCODER = "lora_te"
     alpha = weight
 
-    state_dict = load_file(checkpoint_path, device="mps")
+    state_dict = load_file(checkpoint_path, device="cuda")
     visited = []
 
     for key in state_dict:
@@ -177,7 +176,7 @@ def main(request):
 
     else:
         # model 변경
-        lora_model_path = "/Users/joseohyeon/Downloads/image-pj/image_project/model/last.safetensors"
+        lora_model_path = "/srv/image_be/model/last.safetensors"
 
         print("Loading model...")
         weights = float(request.POST.get('weights'))
@@ -288,7 +287,7 @@ def main2(request):
 
     else:
         # model 변경
-        lora_model_path = "/Users/joseohyeon/Downloads/image-pj/image_project/model/last.safetensors"
+        lora_model_path = "/srv/image_be/model/last.safetensors"
 
         print("Loading model...")
         weights = float(request.POST.get('weights'))
