@@ -69,9 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function submitForm() {
-    document.getElementById('controlForm').submit();
-}
+// function submitForm() {
+//     document.getElementById('controlForm').submit();
+// }
 
 function saveCurrentImage() {
     let slides = document.getElementsByClassName("slide");
@@ -103,7 +103,7 @@ function showLoading() {
 var button = document.querySelector('.running');
 button.addEventListener('click', function(event) {
     event.preventDefault(); // 기본 동작 방지 (페이지 새로고침 등)
-
+    document.getElementById('controlForm').submit();
     showLoading(); // 로딩 화면을 보이게 함
 
     // 여기서 실제로 running 작업을 수행
@@ -112,5 +112,6 @@ button.addEventListener('click', function(event) {
         // 실제 running 작업이 끝난 후에 로딩 화면을 숨김
         var loadingScreen = document.getElementById('loadingScreen');
         loadingScreen.style.display = 'none';
-    }, 5000); // 예시로 5초(5000밀리초) 후에 실행
+        
+    }); // 예시로 5초(5000밀리초) 후에 실행
 });

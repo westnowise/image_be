@@ -281,6 +281,7 @@ def main2(request):
             'seed': -1,
             # 'batch_size': '',
             # 'batch_count': '',
+            'weights':'0.00',
             'init_image': None
         })
 
