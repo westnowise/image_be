@@ -176,7 +176,7 @@ def main(request):
 
     else:
         # model 변경
-        lora_model_path = "/srv/image_be/model/last.safetensors"
+        lora_model_path = "/srv/image_be/model/object3.safetensors"
 
         print("Loading model...")
         weights = float(request.POST.get('weights'))
@@ -286,7 +286,7 @@ def main2(request):
 
     else:
         # model 변경
-        lora_model_path = "/srv/image_be/model/last.safetensors"
+        lora_model_path = "/srv/image_be/model/animal3.safetensors"
 
         print("Loading model...")
         weights = float(request.POST.get('weights'))
