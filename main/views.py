@@ -162,14 +162,14 @@ def main(request):
         # GET 요청일 경우 기본값을 템플릿으로 전달
         return render(request, 'main2.html', {
             'images': [],
-            'prompt': 'mi1kt3a, mi1kt3a style, crt',
-            'negative_prompt': '',
-            'num_inference_steps': '',
-            'num_images_per_prompt': '',
-            'guidance_scale': '',
-            'seed': '',
-            'batch_size': '',
-            'batch_count': '',
+            'prompt': 'mi1kt3a, mi1kt3a style, crt, object',
+            # 'negative_prompt': '',
+            # 'num_inference_steps': '',
+            # 'num_images_per_prompt': '',
+            # 'guidance_scale': '',
+            # 'seed': '',
+            # 'batch_size': '',
+            # 'batch_count': '',
             'weights': '0.00',
             'init_image': None
         })
@@ -263,7 +263,7 @@ def main(request):
             'batch_size': batch_size,
             'batch_count': batch_count,
             'weights': weights,
-            'init_image': init_image_base64
+            'init_image': init_image_file
             })
     
     
@@ -273,15 +273,7 @@ def main2(request):
         # GET 요청일 경우 기본값을 템플릿으로 전달
         return render(request, 'main2.html', {
             'images': [],
-            'prompt': 'mi1kt3a, mi1kt3a style, crt',
-            'negative_prompt': '',
-            'num_inference_steps': '',
-            'num_images_per_prompt': '',
-            'guidance_scale': '',
-            'seed': '',
-            'batch_size': '',
-            'batch_count': '',
-            'weights': '0.00',
+            'prompt': 'mi1kt3a, mi1kt3a style, crt, animal',
             'init_image': None
         })
 
@@ -374,7 +366,7 @@ def main2(request):
             'batch_size': batch_size,
             'batch_count': batch_count,
             'weights': weights,
-            'init_image': init_image_base64
+            'init_image': init_image_file
             })
             
     # except Exception as e:
