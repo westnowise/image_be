@@ -101,3 +101,35 @@ document.querySelector('.running').addEventListener('click', function() {
        
     }, 5000); 
 });
+
+document.getElementById('myForm').addEventListener('submit', function(event) {
+    const requiredFields = [
+        'prompt',
+        'negative_prompt',
+        'num_inference_steps',
+        'num_images_per_prompt',
+        'guidance_scale',
+        'seed',
+        'batch_size',
+        'batch_count',
+        'slider',
+        'imageInput'
+    ];
+
+    let isValid = true;
+
+    requiredFields.forEach(function(fieldId) {
+        const field = document.getElementById(fieldId);
+        if (!field.value) {
+            isValid = false;
+            field.style.borderColor = 'red'; // 입력되지 않은 필드에 빨간색 테두리를 추가합니다.
+        } else {
+            field.style.borderColor = ''; // 입력된 필드의 테두리를 초기화합니다.
+        }
+    });
+
+    if (!isValid) {
+        event.preventDefault(); // 폼 제출을 막습니다.
+        alert('모든 필수 입력 필드를 입력해 주세요.');
+    }
+});
