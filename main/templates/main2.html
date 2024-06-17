@@ -23,38 +23,38 @@
         <div class="left">
             <div class="panel">
                 입력 프롬프트
-                <input type = "text" placeholder="문자를 입력하세요" id="prompt" name="prompt" rows="3" style="display: block;" value="{{ prompt }}" >
+                <input type = "text" placeholder="문자를 입력하세요" id="prompt" name="prompt" rows="3" style="display: block;" value="{{ prompt }}" required>
             </div>
             <div class="panel">
                 제외 프롬프트
-                <input type = "text"placeholder="문자를 입력하세요" id="negative_prompt" name="negative_prompt" rows="3" style="display: block;" value="{{ negative_prompt }}">
+                <input type = "text"placeholder="문자를 입력하세요" id="negative_prompt" name="negative_prompt" rows="3" style="display: block;" value="{{ negative_prompt }}" required>
             </div>
             <div class="panel">
                 파라미터 조절
                 <div class="parameter">
                     <div class="flex-parameter">
                         num_inference_steps
-                        <input type="number" id="num_inference_steps" name="num_inference_steps" placeholder="숫자를 입력하세요" value="{{ num_inference_steps }}">
+                        <input type="number" id="num_inference_steps" name="num_inference_steps" placeholder="숫자를 입력하세요" value="{{ num_inference_steps }}" required>
                     </div>
                     <div class="flex-parameter">
                         num_images_per_prompt (max=4)
-                        <input type="number" id="num_images_per_prompt" name="num_images_per_prompt" max="4" placeholder="숫자를 입력하세요" value="{{ num_images_per_prompt }}">
+                        <input type="number" id="num_images_per_prompt" name="num_images_per_prompt" max="4" placeholder="숫자를 입력하세요" value="{{ num_images_per_prompt }}" required>
                     </div>
                     <div class="flex-parameter">
                         guidance_scale
-                        <input type="number" id="guidance_scale" name="guidance_scale" placeholder="숫자를 입력하세요" value="{{ guidance_scale }}">
+                        <input type="number" id="guidance_scale" name="guidance_scale" placeholder="숫자를 입력하세요" value="{{ guidance_scale }}" required>
                     </div>
                     <div class="flex-parameter">
                         seed
-                        <input type="number" id="seed" name="seed" placeholder="숫자를 입력하세요" value="{{ seed }}">
+                        <input type="number" id="seed" name="seed" placeholder="숫자를 입력하세요" value="{{ seed }}" required>
                     </div>
                     <div class="flex-parameter">
                         batch_size (max=4)
-                        <input type="number" id="batch_size" name="batch_size" max="4" placeholder="숫자를 입력하세요" value="{{ batch_size }}">    
+                        <input type="number" id="batch_size" name="batch_size" max="4" placeholder="숫자를 입력하세요" value="{{ batch_size }}" required>    
                     </div>
                     <div class="flex-parameter">
                         batch_count
-                        <input type="number" id="batch_count" name="batch_count" placeholder="숫자를 입력하세요" value="{{ batch_count }}">
+                        <input type="number" id="batch_count" name="batch_count" placeholder="숫자를 입력하세요" value="{{ batch_count }}" required>
                     </div>
                 </div>
             </div>
