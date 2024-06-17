@@ -69,9 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// function submitForm() {
-//     document.getElementById('controlForm').submit();
-// }
+function submitForm() {
+    document.getElementById('controlForm').submit();
+}
 
 function saveCurrentImage() {
     let slides = document.getElementsByClassName("slide");
@@ -99,19 +99,34 @@ function showLoading() {
     // running 작업이 끝날 때까지 로딩 화면을 보이게 유지
 }
 
+function hideLoading() {
+    var loadingScreen = document.getElementById('loadingScreen');
+    loadingScreen.style.display = 'none';
+}
+
 // 버튼 클릭 이벤트 핸들러
-var button = document.querySelector('.running');
-button.addEventListener('click', function(event) {
+// var button = document.querySelector('.running');
+document.querySelector('.running').addEventListener('click', function(event) {
     event.preventDefault(); // 기본 동작 방지 (페이지 새로고침 등)
-    document.getElementById('controlForm').submit();
     showLoading(); // 로딩 화면을 보이게 함
 
-    // 여기서 실제로 running 작업을 수행
-    // 예시로 setTimeout을 사용하여 5초 후에 작업이 끝났다고 가정
-    setTimeout(function() {
-        // 실제 running 작업이 끝난 후에 로딩 화면을 숨김
-        var loadingScreen = document.getElementById('loadingScreen');
-        loadingScreen.style.display = 'none';
-        
-    }); // 예시로 5초(5000밀리초) 후에 실행
+    document.getElementById('controlForm').submit();
+
+    var form = document.getElementById('controlForm');
+    var formData = new FormData(form);
+
+    // POST 요청 보내기
+    fetch(form.action, {
+        method: form.method,
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        hideLoading(); // 로딩 화면 숨기기
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        hideLoading(); // 로딩 화면 숨기기
+        });
 });
