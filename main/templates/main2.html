@@ -31,7 +31,7 @@
             </div>
             <div class="panel">
                 제외 프롬프트
-                <input type = "text"placeholder="문자를 입력하세요" id="negative_prompt" name="negative_prompt" rows="3" style="display: block;" value="{{ negative_prompt }}" required>
+                <input type = "text" placeholder="문자를 입력하세요" id="negative_prompt" name="negative_prompt" rows="3" style="display: block;" value="{{ negative_prompt }}" required>
             </div>
             <div class="panel">
                 파라미터 조절
@@ -66,7 +66,7 @@
                 LoRa 가중치 조절 <hr style="border-bottom: 1px solid #000000;">
                 <div class="lora_weights">
                     <input type="range" min="0.00" max="0.15" step="0.01" value="{{ weights }}" id="slider" name="weights" >
-                    <span id="slider-value" value="{{ weights }}">0.00</span>
+                    <span id="slider-value">{{ weights }}</span>
                 </div>
             </div>
             <div class="panel">
