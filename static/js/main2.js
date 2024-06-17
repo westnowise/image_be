@@ -101,7 +101,7 @@ function showLoading() {
 
 // 버튼 클릭 이벤트 핸들러
 var button = document.querySelector('.running');
-button.addEventListener('submit', function(event) {
+button.addEventListener('click', function(event) {
     event.preventDefault(); // 기본 동작 방지 (페이지 새로고침 등)
 
     showLoading(); // 로딩 화면을 보이게 함

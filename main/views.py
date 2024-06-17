@@ -162,12 +162,12 @@ def main(request):
         # GET 요청일 경우 기본값을 템플릿으로 전달
         return render(request, 'main2.html', {
             'images': [],
-            'prompt': 'mi1kt3a, mi1kt3a style, crt, object',
-            # 'negative_prompt': '',
+            'prompt': 'mi1kt3a object, same style, crt, simple, normal',
+            'negative_prompt': 'human, girl, man, woman, boy, ugly, background',
             # 'num_inference_steps': '',
             # 'num_images_per_prompt': '',
             # 'guidance_scale': '',
-            # 'seed': '',
+            'seed': -1,
             # 'batch_size': '',
             # 'batch_count': '',
             'weights': '0.00',
@@ -273,7 +273,14 @@ def main2(request):
         # GET 요청일 경우 기본값을 템플릿으로 전달
         return render(request, 'main2.html', {
             'images': [],
-            'prompt': 'mi1kt3a, mi1kt3a style, crt, animal',
+            'prompt': 'mi1kt3a animal, same style, crt, simple, normal',
+            'negative_prompt': 'human, girl, man, woman, boy, ugly, background',
+            # 'num_inference_steps': '',
+            # 'num_images_per_prompt': '',
+            # 'guidance_scale': '',
+            'seed': -1,
+            # 'batch_size': '',
+            # 'batch_count': '',
             'init_image': None
         })
 
