@@ -91,45 +91,26 @@ function saveCurrentImage() {
 // Event listener for save button
 document.querySelector('.save').addEventListener('click', saveCurrentImage);
 
-document.querySelector('.running').addEventListener('click', function() {
-    const loading = document.getElementById('loading');
-    loading.classList.remove('hidden');
+// 로딩 화면을 보이게 하는 함수
+function showLoading() {
+    var loadingScreen = document.getElementById('loadingScreen');
+    loadingScreen.style.display = 'block'; // 화면에 보이게 함
 
-    
+    // running 작업이 끝날 때까지 로딩 화면을 보이게 유지
+}
+
+// 버튼 클릭 이벤트 핸들러
+var button = document.querySelector('.running');
+button.addEventListener('click', function(event) {
+    event.preventDefault(); // 기본 동작 방지 (페이지 새로고침 등)
+
+    showLoading(); // 로딩 화면을 보이게 함
+
+    // 여기서 실제로 running 작업을 수행
+    // 예시로 setTimeout을 사용하여 5초 후에 작업이 끝났다고 가정
     setTimeout(function() {
-        loading.classList.add('hidden');
-       
-    }, 5000); 
-});
-
-document.getElementById('myForm').addEventListener('submit', function(event) {
-    const requiredFields = [
-        'prompt',
-        'negative_prompt',
-        'num_inference_steps',
-        'num_images_per_prompt',
-        'guidance_scale',
-        'seed',
-        'batch_size',
-        'batch_count',
-        'slider',
-        'imageInput'
-    ];
-
-    let isValid = true;
-
-    requiredFields.forEach(function(fieldId) {
-        const field = document.getElementById(fieldId);
-        if (!field.value) {
-            isValid = false;
-            field.style.borderColor = 'red'; // 입력되지 않은 필드에 빨간색 테두리를 추가합니다.
-        } else {
-            field.style.borderColor = ''; // 입력된 필드의 테두리를 초기화합니다.
-        }
-    });
-
-    if (!isValid) {
-        event.preventDefault(); // 폼 제출을 막습니다.
-        alert('모든 필수 입력 필드를 입력해 주세요.');
-    }
+        // 실제 running 작업이 끝난 후에 로딩 화면을 숨김
+        var loadingScreen = document.getElementById('loadingScreen');
+        loadingScreen.style.display = 'none';
+    }, 5000); // 예시로 5초(5000밀리초) 후에 실행
 });

@@ -17,44 +17,48 @@
             <li><a href = "animal">animal</a></li>
         </ul>
     </div>
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loader"></div>
+        <p>이미지 생성 중...</p>
+    </div>
     <form id = "controlForm" method="post" enctype="multipart/form-data">
     {% csrf_token %} 
     <div class="content">
         <div class="left">
             <div class="panel">
                 입력 프롬프트
-                <input type = "text" placeholder="문자를 입력하세요" id="prompt" name="prompt" rows="3" style="display: block;" value="{{ prompt }}" required>
+                <input type = "text" placeholder="문자를 입력하세요" id="prompt" name="prompt" rows="3" style="display: block;" value="{{ prompt }}" >
             </div>
             <div class="panel">
                 제외 프롬프트
-                <input type = "text"placeholder="문자를 입력하세요" id="negative_prompt" name="negative_prompt" rows="3" style="display: block;" value="{{ negative_prompt }}" required>
+                <input type = "text"placeholder="문자를 입력하세요" id="negative_prompt" name="negative_prompt" rows="3" style="display: block;" value="{{ negative_prompt }}">
             </div>
             <div class="panel">
                 파라미터 조절
                 <div class="parameter">
                     <div class="flex-parameter">
                         num_inference_steps
-                        <input type="number" id="num_inference_steps" name="num_inference_steps" placeholder="숫자를 입력하세요" value="{{ num_inference_steps }}" required>
+                        <input type="number" id="num_inference_steps" name="num_inference_steps" placeholder="숫자를 입력하세요" value="{{ num_inference_steps }}">
                     </div>
                     <div class="flex-parameter">
                         num_images_per_prompt (max=4)
-                        <input type="number" id="num_images_per_prompt" name="num_images_per_prompt" max="4" placeholder="숫자를 입력하세요" value="{{ num_images_per_prompt }}" required>
+                        <input type="number" id="num_images_per_prompt" name="num_images_per_prompt" max="4" placeholder="숫자를 입력하세요" value="{{ num_images_per_prompt }}">
                     </div>
                     <div class="flex-parameter">
                         guidance_scale
-                        <input type="number" id="guidance_scale" name="guidance_scale" placeholder="숫자를 입력하세요" value="{{ guidance_scale }}" required>
+                        <input type="number" id="guidance_scale" name="guidance_scale" placeholder="숫자를 입력하세요" value="{{ guidance_scale }}">
                     </div>
                     <div class="flex-parameter">
                         seed
-                        <input type="number" id="seed" name="seed" placeholder="숫자를 입력하세요" value="{{ seed }}" required>
+                        <input type="number" id="seed" name="seed" placeholder="숫자를 입력하세요" value="{{ seed }}">
                     </div>
                     <div class="flex-parameter">
                         batch_size (max=4)
-                        <input type="number" id="batch_size" name="batch_size" max="4" placeholder="숫자를 입력하세요" value="{{ batch_size }}" required>    
+                        <input type="number" id="batch_size" name="batch_size" max="4" placeholder="숫자를 입력하세요" value="{{ batch_size }}">    
                     </div>
                     <div class="flex-parameter">
                         batch_count
-                        <input type="number" id="batch_count" name="batch_count" placeholder="숫자를 입력하세요" value="{{ batch_count }}" required>
+                        <input type="number" id="batch_count" name="batch_count" placeholder="숫자를 입력하세요" value="{{ batch_count }}">
                     </div>
                 </div>
             </div>
@@ -98,14 +102,8 @@
                     <button type="button" class="next" onclick="nextSlide()">&#10095;</button>
                 </div>
             </div>
-            <section class="loading">
-                <h1 class="loading-title">Loading....</h1>
-                <div class="progress-bar" aria-hidden="true">
-                  <span class="progress-bar-gauge"></span>
-                </div>
-            </section>
             <div class="btn">
-                <button type="submit" class="runninig">running</button>
+                <button type="submit" class="running">running</button>
                 <button type="button" class="save">save</button>
             </div>
         </div>
@@ -114,5 +112,3 @@
     <script src="{% static 'js/main2.js'%}"></script>
 </body>
 </html>
-
-
