@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=2000, height=1200">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이미지 생성</title>
     <link rel="stylesheet"  href="{% static 'css/main.css'%}">
 </head>
@@ -17,6 +17,12 @@
             <li><a href = "animal">animal</a></li>
         </ul>
     </div>
+    <section class="loading">
+        <h1 class="loading-title">Loading....</h1>
+        <div class="progress-bar" aria-hidden="true">
+          <span class="progress-bar-gauge"></span>
+        </div>
+    </section>
     <form id = "controlForm" method="post" enctype="multipart/form-data">
     {% csrf_token %} 
     <div class="content">

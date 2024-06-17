@@ -90,3 +90,14 @@ function saveCurrentImage() {
 
 // Event listener for save button
 document.querySelector('.save').addEventListener('click', saveCurrentImage);
+
+document.querySelector('.running').addEventListener('click', function() {
+    const loading = document.getElementById('loading');
+    loading.classList.remove('hidden');
+
+    
+    setTimeout(function() {
+        loading.classList.add('hidden');
+       
+    }, 5000); 
+});
