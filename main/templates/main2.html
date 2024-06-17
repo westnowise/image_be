@@ -19,12 +19,6 @@
     </div>
     <form id = "controlForm" method="post" enctype="multipart/form-data">
     {% csrf_token %} 
-    <section class="loading">
-        <h1 class="loading-title">Loading....</h1>
-        <div class="progress-bar" aria-hidden="true">
-          <span class="progress-bar-gauge"></span>
-        </div>
-    </section>
     <div class="content">
         <div class="left">
             <div class="panel">
@@ -104,6 +98,12 @@
                     <button type="button" class="next" onclick="nextSlide()">&#10095;</button>
                 </div>
             </div>
+            <section class="loading">
+                <h1 class="loading-title">Loading....</h1>
+                <div class="progress-bar" aria-hidden="true">
+                  <span class="progress-bar-gauge"></span>
+                </div>
+            </section>
             <div class="btn">
                 <button type="submit" class="runninig">running</button>
                 <button type="button" class="save">save</button>
